@@ -1,0 +1,26 @@
+{
+  "resources": [
+    {
+      "name": "booklit",
+      "type": "git",
+      "source": {
+        "uri": "https://github.com/sumersovitkar1605/concourse"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "name": "unit",
+      "plan": [
+        {
+          "get": "booklit",
+          "trigger": true
+        },
+        {
+          "task": "unit",
+          "file": "booklit/ci/test.yml"
+        }
+      ]
+    }
+  ]
+}
