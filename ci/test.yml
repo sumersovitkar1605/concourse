@@ -1,1 +1,13 @@
 ----
+resources:
+- name: booklit
+  type: git
+  source: {uri: "https://github.com/sumersovitkar1605/concourse"}
+
+jobs:
+- name: unit
+  plan:
+  - get: booklit
+    trigger: true
+  - task: test
+    file: ci/test.yml
